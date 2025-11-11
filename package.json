@@ -8,32 +8,55 @@
     "Gerard Escalante <gerard@saygo.ca>",
     "Daniel Howe <dhowe@swipeclock.com>"
   ],
-  "bin": {
-    "lcov-parse": "./bin/cli.js"
-  },
   "bugs": {
     "url": "http://github.com/davglass/lcov-parse/issues"
   },
-  "main": "./lib/index",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
   "tags": [
     "lcov",
     "json",
     "coverage",
     "parser"
   ],
-  "devDependencies": {
-    "istanbul": "^0.2.10",
-    "jshint": "^2.5.1",
-    "vows": "*",
-    "yui-lint": "~0.1.1"
-  },
   "scripts": {
-    "pretest": "jshint --config ./node_modules/yui-lint/jshint.json ./lib/",
-    "test": "istanbul cover --print both ./node_modules/vows/bin/vows -- --spec ./tests/*.js"
+    "build": "tsc",
+    "clean": "rimraf dist coverage",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write src/**/*.ts",
+    "format:check": "prettier --check src/**/*.ts",
+    "ci": "npm run lint && npm run format:check && npm run build && npm run test:run",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/parser": "^8.46.4",
+    "@vitest/coverage-v8": "^4.0.8",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.1.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vitest": "^4.0.8"
   },
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "http://github.com/davglass/lcov-parse.git"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }
