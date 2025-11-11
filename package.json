@@ -1,6 +1,6 @@
 {
-  "name": "lcov-parse",
-  "description": "Parse lcov results files and return JSON",
+  "name": "@saintedlama/lcov-parse",
+  "description": "Parse lcov results files",
   "version": "1.0.0",
   "author": "Dav Glass <davglass@gmail.com>",
   "contributors": [
@@ -28,13 +28,8 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:watch": "vitest --watch",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write src/**/*.ts",
-    "format:check": "prettier --check src/**/*.ts",
-    "ci": "npm run lint && npm run format:check && npm run build && npm run test:run",
-    "prepublishOnly": "npm run build"
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -54,7 +49,7 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "http://github.com/davglass/lcov-parse.git"
+    "url": "http://github.com/saintedlama/lcov-parse.git"
   },
   "engines": {
     "node": ">=16"
