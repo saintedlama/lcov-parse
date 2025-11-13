@@ -47,7 +47,10 @@ export type LcovFile = {
   };
 };
 
-export function parse(str: string): LcovFile[] | undefined {
+export function parse(
+  str: string,
+  options: { warnOnUnknown: boolean } = { warnOnUnknown: false }
+): LcovFile[] | undefined {
   const data: LcovFile[] = [];
   let item: LcovFile = {
     file: '',
@@ -155,6 +158,11 @@ export function parse(str: string): LcovFile[] | undefined {
       case 'BRH':
         item.branches.hit = Number(value);
         break;
+      default:
+        if (options?.warnOnUnknown && key !== 'END_OF_RECORD' && key !== '') {
+          // eslint-disable-next-line no-console
+          console.warn(`lcov-parse: Unknown LCOV key encountered: ${key}`);
+        }
     }
 
     if (line.indexOf('end_of_record') > -1) {
