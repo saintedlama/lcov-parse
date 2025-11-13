@@ -1,7 +1,7 @@
 {
   "name": "@saintedlama/lcov-parse",
   "description": "Parse lcov results files",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Dav Glass <davglass@gmail.com>",
   "contributors": [
     "Alan Gutierrez <alan@prettyrobots.com>",
