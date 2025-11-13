@@ -26,11 +26,11 @@
     "build": "tsc",
     "clean": "rimraf dist coverage",
     "test": "vitest run",
-    "test:run": "vitest watch",
+    "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepare ": "npm run clean && npm run lint && npm run build && npm test"
+    "prepare": "npm run clean && npm run lint && npm run build && npm test"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
